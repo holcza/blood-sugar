@@ -30,7 +30,7 @@ public class Client {
     @Column(name = "termination_date")
     private LocalDate terminationDate;
 
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "client",cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     @OrderBy("time")
     private List<Measurement> measurements = new ArrayList<>();
@@ -41,7 +41,7 @@ public class Client {
         this.terminationDate = terminationDate;
     }
 
-    public void addMeasurement (Measurement measurement){
+    public void addMeasurement(Measurement measurement) {
         measurements.add(measurement);
         measurement.setClient(this);
     }

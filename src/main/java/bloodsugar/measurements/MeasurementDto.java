@@ -1,6 +1,6 @@
 package bloodsugar.measurements;
-
-import bloodsugar.clients.Client;
+import bloodsugar.clients.ClientDto;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,10 +17,13 @@ public class MeasurementDto {
 
     private Long id;
 
-    private LocalDateTime time;
-
     private MeasurementType type;
 
-    private long result;
+    private LocalDateTime time;
+
+    private double result;
+
+    @JsonBackReference
+    private ClientDto client;
 
 }

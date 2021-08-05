@@ -13,6 +13,8 @@ import java.lang.annotation.Target;
 public @interface TajNumberValidation {
 
     String message() default "Invalid TAJ number";
+
     Class<?>[] groups() default {};
+
     Class<? extends Payload>[] payload() default {};
 }

@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
@@ -16,6 +18,7 @@ import java.time.LocalDateTime;
 public class CreateMeasurementCommand {
 
     @Schema(description = "Type of blood sugar measurement", example = "ONE_HOUR_AFTER_DINNER")
+    @Enumerated(EnumType.STRING)
     private MeasurementType type;
 
     @Schema(description = "Time of blood sugar measurement", example = "2021-08-03T10:30")
@@ -23,5 +26,5 @@ public class CreateMeasurementCommand {
 
     @Positive
     @Schema(description = "Result of blood sugar measurement", example = "5.4")
-    private long result;
+    private double result;
 }

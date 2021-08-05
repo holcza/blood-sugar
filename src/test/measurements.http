@@ -1,0 +1,59 @@
+###
+GET http://localhost:8080//api/clients/3/measurements
+Content-Type: application/json
+
+###
+POST http://localhost:8080//api/clients/3/measurements
+Content-Type: application/json
+Accept: application/json
+
+{
+  "type": "BEFORE_LUNCH",
+  "time": "2021-08-02T10:30",
+  "result": "5.4"
+}
+
+###
+PUT http://localhost:8080//api/clients/3/measurements/1
+Content-Type: application/json
+Accept: application/json
+
+{
+  "type": "BEFORE_LUNCH",
+  "time": "2021-08-02T10:30",
+  "result": "6.0"
+}
+
+###
+POST http://localhost:8080//api/clients/3/measurements
+Content-Type: application/json
+Accept: application/json
+
+{
+  "type": "ONE_HOUR_AFTER_LUNCH",
+  "time": "2021-08-02T12:30",
+  "result": "6.6"
+}
+
+###
+POST http://localhost:8080//api/clients/3/measurements
+Content-Type: application/json
+Accept: application/json
+
+{
+  "type": "ONE_HOUR_AFTER_LUNCH",
+  "time": "2021-08-02T12:30",
+  "result": "-6.6"
+}
+
+###
+GET http://localhost:8080//api/clients/3/measurements?result=6.0
+Content-Type: application/json
+
+###
+DELETE http://localhost:8080//api/clients/3/measurements/6
+Content-Type: application/json
+
+###
+DELETE http://localhost:8080//api/clients/3/measurements
+Content-Type: application/json

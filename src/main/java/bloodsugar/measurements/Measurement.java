@@ -23,15 +23,16 @@ public class Measurement {
     @Enumerated(EnumType.STRING)
     private MeasurementType type;
 
+    @Column(name = "measurement_time")
     private LocalDateTime time;
 
-    private long result;
+    private double result;
 
-    @ManyToOne (cascade = CascadeType.ALL)
+    @ManyToOne
     @ToString.Exclude
     private Client client;
 
-    public Measurement(MeasurementType type, LocalDateTime time, long result) {
+    public Measurement(MeasurementType type, LocalDateTime time, double result) {
         this.type = type;
         this.time = time;
         this.result = result;

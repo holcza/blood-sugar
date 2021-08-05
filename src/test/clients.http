@@ -1,0 +1,108 @@
+###
+GET http://localhost:8080//api/clients
+Content-Type: application/json
+
+###
+GET http://localhost:8080//api/clients/2
+Content-Type: application/json
+
+###
+GET http://localhost:8080//api/clients/6
+Content-Type: application/json
+
+###
+POST http://localhost:8080//api/clients
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Jane Doe",
+  "tajNumber": "111222333",
+  "terminationDate": "2021-09-30"
+}
+
+###
+PUT http://localhost:8080//api/clients/1
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Jane Doe",
+  "tajNumber": "111222444",
+  "terminationDate": "2021-09-30"
+}
+
+###
+POST http://localhost:8080//api/clients
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Ann Doe",
+  "tajNumber": "111222555",
+  "terminationDate": "2021-09-29"
+}
+
+###
+POST http://localhost:8080//api/clients
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": " ",
+  "tajNumber": "111222555",
+  "terminationDate": "2021-09-29"
+}
+
+###
+POST http://localhost:8080//api/clients
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Ann Doe",
+  "tajNumber": "111222555",
+  "terminationDate": "2021-01-29"
+}
+
+###
+POST http://localhost:8080//api/clients
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Ann Doe",
+  "tajNumber": "11122255A",
+  "terminationDate": "2021-09-29"
+}
+
+###
+POST http://localhost:8080//api/clients
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Ann Doe",
+  "tajNumber": "11122255567",
+  "terminationDate": "2021-09-29"
+}
+
+###
+GET http://localhost:8080//api/clients?name=Jane Doe
+Content-Type: application/json
+
+###
+GET http://localhost:8080//api/clients?tajNumber=111222555
+Content-Type: application/json
+
+###
+GET http://localhost:8080//api/clients?terminationDate=2021-09-29
+Content-Type: application/json
+
+###
+DELETE http://localhost:8080//api/clients/1
+Content-Type: application/json
+
+###
+DELETE http://localhost:8080//api/clients
+Content-Type: application/json

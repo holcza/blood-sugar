@@ -22,5 +22,5 @@ public class ModifyMeasurementCommand {
 
     @Positive
     @Schema(description = "Result of blood sugar measurement", example = "5.4")
-    private long result;
+    private double result;
 }

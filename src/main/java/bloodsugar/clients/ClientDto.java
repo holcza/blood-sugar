@@ -1,6 +1,7 @@
 package bloodsugar.clients;
 
 import bloodsugar.measurements.Measurement;
+import bloodsugar.measurements.MeasurementDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -24,5 +25,5 @@ public class ClientDto {
 
     private LocalDate terminationDate;
 
-    private List<Measurement> measurements;
+    private List<MeasurementDto> measurements;
 }
