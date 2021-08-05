@@ -2,6 +2,7 @@ package bloodsugar.clients;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -23,7 +24,8 @@ public class ClientController {
     @GetMapping
     @Operation(summary = "List of clients", description = "List of clients")
     public List<ClientDto> listClients
-            (@RequestParam Optional<String> name, @RequestParam Optional<String> tajNumber, @RequestParam Optional<LocalDate> terminationDate) {
+            (@RequestParam Optional<String> name, @RequestParam Optional<String> tajNumber,
+             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Optional<LocalDate> terminationDate) {
         return service.listClients(name, tajNumber, terminationDate);
     }
 

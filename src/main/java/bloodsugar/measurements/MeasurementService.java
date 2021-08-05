@@ -6,6 +6,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -22,12 +23,11 @@ public class MeasurementService {
     private ClientService clientService;
 
     public List<MeasurementDto> listMeasurements(
-            long clientId, Optional<MeasurementType> type, Optional<LocalDateTime> time, Optional<Long> result) {
+            long clientId, Optional<MeasurementType> type, Optional<LocalDate> date) {
         clientService.findClientById(clientId);
         return repo.findMeasurementByClient_Id(clientId).stream()
                 .filter(t -> type.isEmpty() || t.getType().equals(type.get()))
-                .filter(t -> time.isEmpty() || t.getTime().isEqual(time.get()))
-                .filter(t -> result.isEmpty() || t.getResult() == result.get())
+                .filter(t -> date.isEmpty() || t.getTime().toLocalDate().isEqual(date.get()))
                 .map(m -> modelMapper.map(m, MeasurementDto.class))
                 .collect(Collectors.toList());
     }

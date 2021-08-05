@@ -2,9 +2,11 @@ package bloodsugar.measurements;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -23,8 +25,8 @@ public class MeasurementController {
     @GetMapping
     @Operation(summary = "List of measurements for a client", description = "List of measurements for a client")
     public List<MeasurementDto> listMeasurements
-            (@PathVariable("id") long clientId, @RequestParam Optional<MeasurementType> type, @RequestParam Optional<LocalDateTime> time, @RequestParam Optional<Long> result) {
-        return service.listMeasurements(clientId, type, time, result);
+            (@PathVariable("id") long clientId, @RequestParam Optional<MeasurementType> type, @RequestParam(value = "date") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Optional<LocalDate> date) {
+        return service.listMeasurements(clientId, type, date);
     }
 
     @PostMapping

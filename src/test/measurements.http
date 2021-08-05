@@ -9,7 +9,7 @@ Accept: application/json
 
 {
   "type": "BEFORE_LUNCH",
-  "time": "2021-08-02T10:30",
+  "time": "2021-08-01T10:30",
   "result": "5.4"
 }
 
@@ -47,7 +47,11 @@ Accept: application/json
 }
 
 ###
-GET http://localhost:8080//api/clients/3/measurements?result=6.0
+GET http://localhost:8080//api/clients/3/measurements?type=ONE_HOUR_AFTER_LUNCH
+Content-Type: application/json
+
+###
+GET http://localhost:8080//api/clients/3/measurements?date=2021-08-02
 Content-Type: application/json
 
 ###

@@ -25,7 +25,6 @@ public class ClientService {
                 .filter(t -> name.isEmpty() || t.getName().equals(name.get()))
                 .filter(t -> tajNumber.isEmpty() || t.getTajNumber().equals(tajNumber.get()))
                 .filter(t -> terminationDate.isEmpty() ||
-                        t.getTerminationDate().isAfter(terminationDate.get()) ||
                         t.getTerminationDate().isEqual(terminationDate.get()))
                 .map(m -> modelMapper.map(m, ClientDto.class))
                 .collect(Collectors.toList());
